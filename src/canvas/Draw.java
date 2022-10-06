@@ -36,6 +36,8 @@ public class Draw extends JLabel {
             }
         }
 
+        System.out.println("hugo");
+
         Player player = Main.getPlayer();
 
         //player
