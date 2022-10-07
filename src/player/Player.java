@@ -5,7 +5,7 @@ public class Player {
     public final int PLAYER_WIDTH = 30;
     public final int PLAYER_HEIGHT = 30;
 
-    public final int MOVING_SPEED = 4;
+    public final int MOVING_SPEED = 40;
 
     private int x;
     private int y;
@@ -30,4 +30,6 @@ public class Player {
     public void setY(int y) {
         this.y = y;
     }
+
+
 }

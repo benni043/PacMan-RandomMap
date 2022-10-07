@@ -43,4 +43,11 @@ public class Cell {
         return rightWall;
     }
 
+    public void setUpperWall(boolean upperWall) {
+        this.upperWall = upperWall;
+    }
+
+    public void setRightWall(boolean rightWall) {
+        this.rightWall = rightWall;
+    }
 }

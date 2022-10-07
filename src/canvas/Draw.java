@@ -47,22 +47,22 @@ public class Draw extends JLabel {
 
         if (KeyListener.isWPressed()) {
             if (player.getY() - 40 >= 0 && !maze[player.getX() / 40][player.getY() / 40].hasUpperWall()) {
-                player.setY(player.getY() - 40);
+                player.setY(player.getY() - player.MOVING_SPEED);
             }
         }
         if (KeyListener.isSPressed()) {
             if (player.getY() + 40 <= 600 && !maze[player.getX() / 40][player.getY() / 40 + 1].hasUpperWall()) {
-                player.setY(player.getY() + 40);
+                player.setY(player.getY() + player.MOVING_SPEED);
             }
         }
         if (KeyListener.isAPressed()) {
-            if (player.getX() - 40 >= 0 && !maze[player.getX() / 40 - 1][player.getY() / 40].hasRightWall()) {
-                player.setX(player.getX() - 40);
+            if (player.getX() - Main.WIDTH/Main.X_COUNT >= 0 && !maze[player.getX() / 40 - 1][player.getY() / 40].hasRightWall()) {
+                player.setX(player.getX() - player.MOVING_SPEED);
             }
         }
         if (KeyListener.isDPressed()) {
             if (player.getX() + 40 <= 600 && !maze[player.getX() / 40][player.getY() / 40].hasRightWall()) {
-                player.setX(player.getX() + 40);
+                player.setX(player.getX() + player.MOVING_SPEED);
             }
         }
 

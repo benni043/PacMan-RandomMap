@@ -24,12 +24,16 @@ public class Main {
     public static final int X_COUNT = 15;
     public static final int Y_COUNT = 15;
 
+    public static final int percent = 1;
+
     public static void main(String[] args) {
-        player = new Player(0,0);
+        player = new Player(5,5);
 
         randomMaze = new RandomMaze();
-        randomMaze.createRandomMaze(0, 0, true, true);
-        //randomMaze.deleteWallInLinePercent(10);
+//        randomMaze.createRandomMaze(0, 0, true, true);
+
+        randomMaze.createRandomMaze(0,0, true, true);
+        randomMaze.createSpawn(15, 15);
 
         Canvas canvas = new Canvas();
 

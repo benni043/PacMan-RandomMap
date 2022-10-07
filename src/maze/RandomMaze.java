@@ -16,6 +16,33 @@ public class RandomMaze {
     private final Cell[][] maze = new Cell[Main.X_COUNT][Main.Y_COUNT];
     private Direction beforeDirection = Direction.right;
 
+    public void createMaze() {
+        for (int i = 0; i < maze.length; i++) {
+            for (int j = 0; j < maze[i].length; j++) {
+                maze[i][j] = new Cell(true, true);
+            }
+        }
+    }
+
+    public void createSpawn(int spawnWidth, int spawnHeight) {
+        for (int i = 0; i < spawnWidth; i++) {
+            for (int j = 0; j < spawnHeight; j++) {
+                if(i >= (spawnWidth-5)/2 && i <= ((spawnWidth-5)/2)+4 && j >= (spawnWidth-5)/2 && j <= ((spawnWidth-5)/2)+4) {
+                    maze[i][j].setUpperWall(false);
+                    maze[i][j].setRightWall(false);
+                }
+
+                if(j == (spawnWidth-5)/2 && i >= (spawnWidth-5)/2 && i <= ((spawnWidth-5)/2)+4) {
+                    maze[i][j].setUpperWall(true);
+                }
+                if(i == ((spawnWidth-5)/2)+4 && j >= (spawnWidth-5)/2 && j <= ((spawnWidth-5)/2)+4) {
+                    maze[i][j].setRightWall(true);
+                }
+
+            }
+        }
+    }
+
     public void createRandomMaze(int x, int y, boolean hasUpperWall, boolean hasRightWall) {
         if (maze[x][y] == null) {
             maze[x][y] = new Cell(hasUpperWall, hasRightWall);
@@ -33,7 +60,7 @@ public class RandomMaze {
 
         if (validCellCords.size() == 0) return;
 
-        Point point = percentChance(1, validCellCords);
+        Point point = percentChance(Main.percent, validCellCords);
 
         switch (point.direction()) {
             case top -> {
